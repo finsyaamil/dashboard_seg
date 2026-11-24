@@ -76,6 +76,7 @@
   .shell-nav-btn.active .ic{ background:var(--tab-accent, var(--shell-brand2)); }
   .shell-nav-btn[data-page="dash-budget"]{ --tab-accent: var(--shell-brand2); }
   .shell-nav-btn[data-page="dash-cashmgmt"]{ --tab-accent: var(--shell-plum); }
+  .shell-nav-btn[data-page="dash-finratio"]{ --tab-accent: var(--shell-gold); }
   .shell-nav-btn[data-page="dash-analysis"]{ --tab-accent: var(--shell-blue); }
   .shell-nav-btn[data-page="dash-ar"]{ --tab-accent: var(--shell-green); }
   .shell-nav-btn[data-page="dash-ap"]{ --tab-accent: var(--shell-red); }
@@ -1400,6 +1401,81 @@
   th.sortable-th.sort-asc::after { content:'\25B2'; opacity:1; }
   th.sortable-th.sort-desc::after { content:'\25BC'; opacity:1; }
 
+  /* ============ ANALISIS LAPORAN KEUANGAN PAGE (Tema Syaamil Group) ============ */
+  #dash-finratio {
+    --bg:#f2f5f9; --panel:#ffffff; --panel-2:#f6f8fb; --line:#e6ebf2;
+    --ink:#1e293b; --ink-dim:#4b5a6c; --ink-faint:#6b7a8c;
+    --brand:#0e56a4; --brand2:#f7941d; --hd:#0e56a4; --sk:#e8f0fa; --hl:#fff4c2; --sep:#1e293b;
+    --gold:#0e56a4; --gold-dim:#8fb3dd; --green:#1c7c5c; --neg:#b23a48;
+    --sans:'Public Sans',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif; --mono:var(--sans); --serif:var(--sans);
+    margin:0; padding:0; color:var(--ink); font-family:var(--sans); background:var(--bg); min-height:100vh;
+    font-size:12.5px; line-height:1.45; font-variant-numeric:tabular-nums;
+  }
+  #dash-finratio * { box-sizing:border-box; }
+  #dash-finratio .wrap2 { max-width:none; margin:0; padding:14px 18px 30px; position:relative; }
+  #dash-finratio .masthead { display:flex; justify-content:space-between; align-items:center; gap:16px 24px; flex-wrap:wrap; background:var(--panel); border-radius:16px; border-top:3px solid var(--brand2); padding:14px 18px; box-shadow:0 1px 3px rgba(16,24,40,.06); margin:0 0 12px; }
+  #dash-finratio .masthead-left h1 { font-family:var(--sans); font-weight:800; font-size:22px; line-height:1.2; margin:0; color:var(--brand); letter-spacing:0; }
+  #dash-finratio .masthead-left .sub { color:var(--ink-faint); font-size:12px; margin:4px 0 0; }
+  #dash-finratio .masthead-mid { display:flex; align-items:flex-end; gap:10px; flex-wrap:wrap; margin-left:auto; }
+  #dash-finratio .fr-fld { display:flex; flex-direction:column; gap:3px; }
+  #dash-finratio .fr-fld > span { font-size:11px; color:var(--ink-faint); }
+  #dash-finratio .masthead-right { text-align:right; font-size:11.5px; color:var(--ink-faint); line-height:1.6; min-width:150px; }
+  #dash-finratio .masthead-right .asof { color:var(--ink); font-size:12.5px; font-weight:600; }
+  #dash-finratio .masthead-right .asof span { color:var(--brand); font-weight:700; }
+  #dash-finratio select { font-family:var(--sans); font-size:12px; color:var(--ink); background:var(--panel-2); border:1px solid var(--line); border-radius:8px; padding:6px 9px; min-width:140px; cursor:pointer; }
+  #dash-finratio select:focus { outline:2px solid var(--gold-dim); outline-offset:1px; }
+  #dash-finratio .masthead button { font-family:var(--sans); font-size:12px; font-weight:700; padding:6px 14px; border:1px solid var(--brand); border-radius:8px; background:var(--panel); color:var(--brand); cursor:pointer; height:31px; }
+  #dash-finratio .masthead button:hover { background:var(--sk); }
+  #dash-finratio .fr-filter-note { font-size:11.5px; color:var(--ink-faint); line-height:1.6; padding:0 6px 12px; }
+  #dash-finratio .fr-filter-note b { color:var(--ink-dim); font-weight:600; }
+  #dash-finratio .panel { background:var(--panel); border:0; border-radius:16px; padding:14px; box-shadow:0 1px 3px rgba(16,24,40,.06); margin-bottom:12px; }
+  #dash-finratio .panel h2 { font-family:var(--sans); font-size:12px; font-weight:700; letter-spacing:.05em; text-transform:uppercase; color:var(--ink-faint); margin:2px 0 2px; }
+  #dash-finratio .panel .panel-sub { font-family:var(--sans); font-size:11.5px; color:var(--ink-faint); margin-bottom:10px; }
+  #dash-finratio .fr-scroll { overflow:auto; border:1px solid var(--line); border-radius:10px; }
+  #dash-finratio table.fr-table { width:100%; border-collapse:collapse; font-size:12px; }
+  #dash-finratio table.fr-table th { text-align:left; padding:8px 10px; background:var(--hd); color:#fff; font-family:var(--sans); font-size:11px; font-weight:700; text-transform:none; letter-spacing:0; border-bottom:2px solid var(--sep); white-space:nowrap; position:sticky; top:0; z-index:2; }
+  #dash-finratio table.fr-table th.num, #dash-finratio table.fr-table td.num { text-align:right; }
+  #dash-finratio table.fr-table td { padding:6px 10px; border-bottom:1px solid var(--line); white-space:nowrap; }
+  #dash-finratio table.fr-table td.num { font-family:var(--sans); min-width:74px; }
+  #dash-finratio table.fr-table td:first-child, #dash-finratio table.fr-table th:first-child { position:sticky; left:0; background:var(--panel); z-index:1; min-width:290px; }
+  #dash-finratio table.fr-table th:first-child { background:var(--hd); z-index:3; }
+  #dash-finratio table.fr-table td.neg { color:var(--neg); }
+  #dash-finratio table.fr-table tr.fr-key td { font-weight:700; background:var(--hl); }
+  #dash-finratio table.fr-table tr.fr-key td:first-child { background:var(--hl); }
+  #dash-finratio table.fr-table tr.fr-sub td:first-child { padding-left:28px; color:var(--ink-dim); }
+  #dash-finratio table.fr-table tr.fr-sub td { color:var(--ink-dim); }
+  #dash-finratio table.fr-table tr.fr-sub td.neg { color:var(--neg); }
+  #dash-finratio table.fr-table tr.fr-memo td { font-style:italic; color:var(--ink-dim); }
+  #dash-finratio table.fr-table tr.fr-group td { font-family:var(--sans); font-size:11px; letter-spacing:.04em; text-transform:uppercase; font-weight:700; color:var(--brand); background:var(--sk); border-bottom:2px solid var(--sep); }
+  #dash-finratio table.fr-table tr.fr-group td:first-child { background:var(--sk); }
+  #dash-finratio table.fr-table td.fr-ytd, #dash-finratio table.fr-table th.fr-ytd { border-left:1.5px solid var(--sep); }
+  #dash-finratio .fr-note { font-family:var(--sans); font-size:11.5px; color:var(--ink-faint); line-height:1.7; margin-top:10px; }
+  #dash-finratio .fr-note b { color:var(--ink-dim); font-weight:600; }
+  #dash-finratio .fr-empty { padding:18px; font-size:12.5px; color:var(--ink-dim); }
+  #dash-finratio .fr-quad-ctl { display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:14px; font-size:11.5px; color:var(--ink-dim); }
+  #dash-finratio .fr-quad-ctl label { letter-spacing:.05em; text-transform:uppercase; font-weight:700; color:var(--brand); }
+  #dash-finratio .fr-quad-ctl label.fr-check { text-transform:none; letter-spacing:0; font-weight:400; color:var(--ink-dim); display:flex; align-items:center; gap:6px; cursor:pointer; }
+  #dash-finratio .fr-quad-ctl select { min-width:200px; }
+  #dash-finratio .fr-quad-ctl input[type=checkbox] { accent-color:var(--brand2); }
+  #dash-finratio .fr-quad { display:grid; grid-template-columns:auto minmax(0,1fr) auto; grid-template-rows:auto auto auto; gap:10px 12px; max-width:880px; margin:6px auto 0; align-items:center; }
+  #dash-finratio .fr-qa { font-size:12px; font-weight:800; letter-spacing:.06em; color:var(--brand); white-space:nowrap; }
+  #dash-finratio .fr-qa-top { grid-column:2; grid-row:1; text-align:center; }
+  #dash-finratio .fr-qa-left { grid-column:1; grid-row:2; text-align:right; }
+  #dash-finratio .fr-qa-right { grid-column:3; grid-row:2; }
+  #dash-finratio .fr-qa-bottom { grid-column:2; grid-row:3; text-align:center; }
+  #dash-finratio .fr-qgrid { grid-column:2; grid-row:2; display:grid; grid-template-columns:1fr 1fr; grid-template-rows:minmax(160px,auto) minmax(160px,auto); gap:3px; background:#fff; border:3px solid #fff; border-radius:12px; overflow:hidden; box-shadow:0 0 0 1px var(--line); }
+  #dash-finratio .fr-q { padding:14px 18px; color:#1e293b; }
+  #dash-finratio .fr-q.q1 { background:#dcf2e3; }
+  #dash-finratio .fr-q.q2, #dash-finratio .fr-q.q3 { background:#fff4c2; }
+  #dash-finratio .fr-q.q4 { background:#fbe0e0; }
+  #dash-finratio .fr-q-head { display:flex; justify-content:space-between; align-items:baseline; gap:8px; }
+  #dash-finratio .fr-q-title { font-weight:800; font-size:13px; letter-spacing:.05em; }
+  #dash-finratio .fr-q-count { font-size:11px; color:rgba(30,41,59,.62); }
+  #dash-finratio .fr-q-sub { font-size:11px; color:rgba(30,41,59,.7); margin:2px 0 12px; }
+  #dash-finratio .fr-q-months { display:flex; flex-wrap:wrap; gap:8px 16px; }
+  #dash-finratio .fr-chip { font-size:13px; font-weight:700; cursor:default; }
+  #dash-finratio .fr-chip.prov { font-weight:400; font-style:italic; border-bottom:1px dashed rgba(30,41,59,.65); }
+  #dash-finratio .fr-q-none { color:rgba(30,41,59,.38); }
 </style>
 
 <style>
@@ -1987,6 +2063,7 @@ window.__DATA__ = {
       <button class="shell-nav-btn" data-page="dash-pnl"><span class="ic"></span>Profit &amp; Loss</button>
       <button class="shell-nav-btn" data-page="dash-balancesheet"><span class="ic"></span>Balance Sheet</button>
       <button class="shell-nav-btn" data-page="dash-cashmgmt"><span class="ic"></span>Cash Management</button>
+      <button class="shell-nav-btn" data-page="dash-finratio"><span class="ic"></span>Analisis Laporan Keuangan</button>
       <button class="shell-nav-btn" data-page="dash-cashproj"><span class="ic"></span>Cash Projection</button>
       <button class="shell-nav-btn" data-page="dash-analysis"><span class="ic"></span>Analysis Sales Order</button>
       <button class="shell-nav-btn" data-page="dash-ar"><span class="ic"></span>AR / Piutang SEG</button>
@@ -3804,6 +3881,102 @@ window.__DATA__ = {
   <div class="shell-page" id="page-dash-cashproj">
     <div id="dash-cashproj" style="padding:12px">
       <iframe id="cpFrame" title="Cash Projection SEG &amp; NSI" style="display:block;width:100%;height:calc(100vh - 24px);min-height:640px;border:0;border-radius:14px;background:#eef1f0"></iframe>
+    </div>
+  </div>
+
+  <div class="shell-page" id="page-dash-finratio">
+    <div id="dash-finratio">
+      <div class="wrap2">
+
+        <div class="masthead">
+          <div class="masthead-left">
+            <h1>Analisis Laporan Keuangan</h1>
+            <p class="sub">SEG &middot; Rasio profitabilitas, likuiditas, aktivitas &amp; arus kas &middot; per bulan &middot; <span id="frYear">2026</span></p>
+          </div>
+          <div class="masthead-mid">
+            <div class="fr-fld"><span>Dari bulan</span><select id="frFrom" aria-label="Dari bulan"></select></div>
+            <div class="fr-fld"><span>Sampai bulan</span><select id="frTo" aria-label="Sampai bulan"></select></div>
+            <button type="button" id="frReset">Reset</button>
+          </div>
+          <div class="masthead-right">
+            <div class="asof">Tutup buku s.d <span id="frAsOf">-</span></div>
+            <div id="frCfAsOf">-</div>
+          </div>
+        </div>
+        <div class="fr-filter-note" id="frFilterNote"></div>
+
+        <div class="panel">
+          <h2>1 &middot; Rasio Profitabilitas terhadap Pendapatan Bruto</h2>
+          <div class="panel-sub">Setiap baris = nilai akun &divide; Pendapatan Bruto bulan yang sama &middot; sumber: Laporan Laba Rugi</div>
+          <div class="fr-scroll"><table class="fr-table" id="frProfTable"></table></div>
+          <div class="fr-note">
+            <b>Cara baca:</b> YTD = akumulasi bulan yang tampil &divide; total Pendapatan Bruto periode yang sama. Diskon &amp; Retur dan HPP adalah pengurang (semakin kecil semakin baik).<br>
+            <b>Biaya Marketing</b> = Gaji + SPPD + Marketing Lainnya &middot; <b>Biaya Adum &amp; Operasional</b> = Gaji Adum + SPPD Adum + Operasional + Adum Lainnya &middot; <br><b>EBITDA</b> = GP &minus; Total Biaya Entitas &middot; <b>EBIT</b> = EBITDA &minus; Depresiasi &amp; Amortisasi &middot; <b>EBIT setelah Biaya Management</b> = EBIT &minus; Total Biaya Management &middot; <b>Net Profit</b> = EBIT setelah Biaya Management + Pendapatan Lain &minus; Biaya Lain (dihitung berantai dari komponen, sama seperti halaman Profit &amp; Loss).
+          </div>
+        </div>
+
+        <div class="panel">
+          <h2>2 &middot; Rasio Likuiditas</h2>
+          <div class="panel-sub">Posisi akhir bulan &middot; sumber: Balance Sheet &middot; kolom pertama = saldo awal tahun</div>
+          <div class="fr-scroll"><table class="fr-table" id="frLiqTable"></table></div>
+          <div class="fr-note">
+            <b>Current Ratio</b> = Aset Lancar &divide; Liabilitas Lancar &middot; <b>Quick Ratio</b> = (Kas &amp; Bank + Piutang) &divide; Liabilitas Lancar &middot; <b>Cash Ratio</b> = Kas &amp; Bank &divide; Liabilitas Lancar &middot; <b>Modal Kerja Bersih</b> = Aset Lancar &minus; Liabilitas Lancar.<br>
+            Total Aset Lancar dan Liabilitas Lancar diambil dari baris subtotal laporan; <b>Aset Lancar Lainnya</b> = biaya dibayar dimuka, pengeluaran sementara &amp; investasi lancar. Komponen akun (Kas, Piutang, Persediaan) hanya tersedia untuk bulan yang ada di detail neraca; bulan lain tampil &ldquo;&ndash;&rdquo;.
+          </div>
+        </div>
+
+        <div class="panel">
+          <h2>3 &middot; Rasio Aktivitas</h2>
+          <div class="panel-sub">Perputaran &amp; hari per bulan &middot; sumber: Laba Rugi &amp; Balance Sheet &middot; saldo = rata-rata awal &amp; akhir bulan</div>
+          <div class="fr-scroll"><table class="fr-table" id="frActTable"></table></div>
+          <div class="fr-note">
+            <b>Perputaran</b> = basis &divide; rata-rata saldo (kali per bulan): piutang memakai Pendapatan Netto, persediaan &amp; hutang memakai HPP (pendekatan pembelian). <b>Hari</b> = rata-rata saldo &divide; basis &times; jumlah hari dalam bulan.<br>
+            <b>DSO</b> = hari penagihan piutang dagang &middot; <b>DIO</b> = hari persediaan &middot; <b>DPO</b> = hari pembayaran hutang dagang &middot; <b>CCC</b> = DSO + DIO &minus; DPO (semakin pendek semakin baik) &middot; <b>Perputaran Total Aset</b> = Pendapatan Netto &divide; rata-rata Total Aset (kali &times; 12 untuk setahun).<br>
+            Kolom YTD = akumulasi periode: perputaran dalam kali per periode, hari dihitung dari rata-rata saldo selama periode; dasar (Netto/HPP) dan jumlah hari pada kolom YTD hanya mencakup bulan yang saldonya tersedia. Jika saldo bulan sebelumnya tidak ada di detail neraca, rata-rata saldo memakai saldo akhir bulan saja.
+          </div>
+        </div>
+
+        <div class="panel">
+          <h2>4 &middot; Net Working Capital (Modal Kerja Bersih)</h2>
+          <div class="panel-sub">Posisi akhir bulan &middot; sumber: Balance Sheet &amp; Laba Rugi &middot; kolom pertama = saldo awal tahun</div>
+          <div class="fr-scroll"><table class="fr-table" id="frNwcTable"></table></div>
+          <div class="fr-note">
+            <b>NWC</b> = Aset Lancar &minus; Liabilitas Lancar (subtotal laporan) &middot; <b>NWC di luar Kas &amp; Bank</b> = NWC &minus; Kas &amp; Bank &middot; <b>Modal Kerja Dagang</b> = Piutang Dagang + Persediaan &minus; Hutang Dagang (bagian yang ditentukan siklus operasi: DSO, DIO, DPO) &middot; <b>NWC &divide; Pendapatan Netto setahun</b> = NWC &divide; (Pendapatan Netto bulan &times; 12).<br>
+            <b>Cara baca:</b> kenaikan NWC = kas tertahan di modal kerja (piutang atau persediaan naik, atau hutang turun) dan menekan CFO; penurunan NWC melepas kas. Warna merah hanya untuk saldo negatif &mdash; pada baris perubahan, tanda negatif berarti NWC turun.<span id="frNwcSummary"></span>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h2>5 &middot; Arus Kas &mdash; Operasional, Investasi &amp; Pendanaan</h2>
+          <div class="panel-sub">Rp juta &middot; metode langsung &middot; sumber: laporan arus kas (link_cash_flow26) &middot; negatif = kas keluar / penurunan</div>
+          <div class="fr-scroll"><table class="fr-table" id="frCfTable"></table></div>
+          <div class="fr-note" id="frCfNote">
+            <b>Cara baca:</b> angka bersih per aktivitas diambil dari baris subtotal laporan. <b>Arus Kas Bebas</b> = Arus Kas Operasional + Investasi. Saldo Awal + Kenaikan (Penurunan) = Saldo Akhir.<span id="frCfPartial"></span>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h2>6 &middot; Kuadran Laba vs Arus Kas Operasional (CFO)</h2>
+          <div class="panel-sub" id="frQuadSub"></div>
+          <div class="fr-quad-ctl">
+            <label for="frMetric">Ukuran laba</label>
+            <select id="frMetric" aria-label="Ukuran laba">
+              <option value="EBITDA" selected>EBITDA</option>
+              <option value="EBIT">EBIT</option>
+              <option value="EBIT (+Mangement)">EBIT setelah Biaya Management</option>
+              <option value="NPM">Net Profit (NPM)</option>
+            </select>
+            <label class="fr-check"><input type="checkbox" id="frProv" checked> Sertakan bulan yang belum tutup buku (indikasi sementara)</label>
+          </div>
+          <div class="fr-quad" id="frQuadGrid"></div>
+          <div class="fr-scroll" style="margin-top:18px"><table class="fr-table" id="frQuadTable"></table></div>
+          <div class="fr-note">
+            <b>Kuadran I</b> laba (+) &amp; CFO (+): laba sudah menjadi kas &middot; <b>Kuadran II</b> laba (+) tetapi CFO (&minus;): laba belum menjadi kas (umumnya tertahan di piutang/persediaan atau pembayaran ke vendor) &middot; <b>Kuadran III</b> laba (&minus;) tetapi CFO (+): rugi tercatat namun kas operasi masih masuk &middot; <b>Kuadran IV</b> laba (&minus;) &amp; CFO (&minus;): paling kritis.<br>
+            Bulan dengan nilai tepat nol dihitung (+). Arahkan kursor ke nama bulan untuk melihat nilai laba dan CFO. Rentang waktu mengikuti filter di atas.<span id="frQuadPending"></span>
+          </div>
+        </div>
+
+      </div>
     </div>
   </div>
 
@@ -16390,6 +16563,407 @@ matchMedia('(prefers-color-scheme: dark)').addEventListener('change',()=>{if(S.v
   var b=document.querySelector('.shell-nav-btn[data-page="dash-cashproj"]');
   if(b)b.addEventListener('click',loadCP);
 })();
+</script>
+<script>
+// ============ ANALISIS LAPORAN KEUANGAN (rasio profitabilitas, likuiditas, aktivitas, arus kas) ============
+// Dihitung saat halaman dibuka langsung dari window.__DATA__ (pnlData, lpk, cfDetailRaw, saldoRaw),
+// sehingga otomatis ikut ter-update setiap kali data CSV diganti. Rentang waktu dipilih lewat filter "Dari ... s.d ...".
+(function () {
+  'use strict';
+  const root = document.getElementById('dash-finratio');
+  if (!root) return;
+  const D = window.__DATA__ || {};
+  const MN = ['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'];
+  const MN_FULL = ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'];
+  const isNum = v => typeof v === 'number' && isFinite(v);
+  const div = (a, b) => (isNum(a) && isNum(b) && b !== 0) ? a / b : null;
+  const sumOf = arr => arr.reduce((s, v) => s + (isNum(v) ? v : 0), 0);
+  const roundTo = (v, d) => { const p = Math.pow(10, d); return Math.round(v * p) / p + 0; };
+  const fmtDec = (v, d) => isNum(v) ? roundTo(v, d).toLocaleString('id-ID', { minimumFractionDigits: d, maximumFractionDigits: d }) : '–';
+  const fmtJt  = v => isNum(v) ? (Math.round(v / 1e6) + 0).toLocaleString('id-ID') : '–';
+  const fmtPct = v => isNum(v) ? fmtDec(v * 100, 1) + '%' : '–';
+  const fmtX   = v => isNum(v) ? fmtDec(v, 2) + 'x' : '–';
+  const fmtDay = v => isNum(v) ? fmtDec(v, 1) : '–';
+  const isNeg  = t => { const c = String(t).charAt(0); return c === '-' || c === '\u2212'; };
+  const monthIdx = m => MN.indexOf(String(m).slice(0, 3));
+  const daysIn = (y, mi) => new Date(y, mi + 1, 0).getDate();
+  const setText = (id, t) => { const e = document.getElementById(id); if (e) e.textContent = t; };
+  const setHtml = (id, t) => { const e = document.getElementById(id); if (e) e.innerHTML = t; };
+
+  function render(id, head, rows) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const n = head.length;
+    const th = head.map((c, i) => '<th class="' + (i ? 'num' : '') + (/^(YTD|Periode|Total)/.test(c) ? ' fr-ytd' : '') + '">' + c + '</th>').join('');
+    const tb = rows.map(r => {
+      if (r.group) return '<tr class="fr-group"><td colspan="' + n + '">' + r.label + '</td></tr>';
+      const tds = r.cells.map((t, i) => '<td class="num' + (isNeg(t) && !r.noNeg ? ' neg' : '') + (i === r.cells.length - 1 && r.ytd ? ' fr-ytd' : '') + '">' + t + '</td>').join('');
+      return '<tr class="' + (r.cls || '') + '"><td>' + r.label + '</td>' + tds + '</tr>';
+    }).join('');
+    el.innerHTML = '<thead><tr>' + th + '</tr></thead><tbody>' + tb + '</tbody>';
+  }
+  function empty(id, msg) { const el = document.getElementById(id); if (el) el.innerHTML = '<tbody><tr><td class="fr-empty">' + msg + '</td></tr></tbody>'; }
+
+  // ---------- periode tutup buku (mengikuti bulan terakhir Balance Sheet) ----------
+  const lpk = D.lpk;
+  let year = new Date().getFullYear(), cols = [], openM = null;
+  // bulan neraca diambil dari monthsFull (Jan-24 s.d bulan tutup buku terakhir) agar YTD mencakup Januari;
+  // detail akun (lpk.detail) hanya tersedia untuk jendela bulan terakhir -> komponen di luar jendela tampil "–"
+  const lpkMonths = lpk ? (Array.isArray(lpk.monthsFull) && lpk.monthsFull.length ? lpk.monthsFull : lpk.months) : null;
+  if (lpk && lpk.latestMonth && Array.isArray(lpkMonths)) {
+    const yy = String(lpk.latestMonth).slice(-2);
+    year = 2000 + parseInt(yy, 10);
+    cols = lpkMonths.filter(m => String(m).slice(-2) === yy);
+    openM = lpkMonths.find(m => m === 'Des ' + String(year - 1).slice(-2)) || null;
+  }
+  setText('frYear', String(year));
+  if (cols.length) setText('frAsOf', MN_FULL[monthIdx(cols[cols.length - 1])] + ' ' + year);
+
+  // ---------- akses data ----------
+  const PNL = (D.pnlData && D.pnlData.data) || {};
+  // hitungan berantai EBITDA -> EBIT -> EBIT (+Management) -> NPM, identik dengan halaman Profit & Loss
+  const chainOf = o => {
+    if (!o) return null;
+    const d = Object.assign({}, o), has = k => Object.prototype.hasOwnProperty.call(d, k);
+    if (has('GP') && has('Total Biaya Entitas')) d['EBITDA'] = d['GP'] - d['Total Biaya Entitas'];
+    if (has('EBITDA') && has('Depreciation & Amortization')) d['EBIT'] = d['EBITDA'] - d['Depreciation & Amortization'];
+    if (has('EBIT') && has('Total Biaya Management')) d['EBIT (+Mangement)'] = d['EBIT'] - d['Total Biaya Management'];
+    if (has('EBIT (+Mangement)') && has('Pendapatan Lain') && has('Biaya Lain')) d['NPM'] = d['EBIT (+Mangement)'] + d['Pendapatan Lain'] - d['Biaya Lain'];
+    return d;
+  };
+  const pv = (m, k) => { const o = chainOf(PNL[year + '-' + (monthIdx(m) + 1)]); return (o && isNum(o[k])) ? o[k] : null; };
+  const pSum = (m, keys) => { const v = keys.map(k => pv(m, k)).filter(isNum); return v.length ? sumOf(v) : null; };
+  // lap: jumlah akun pada kategori laporanBulanan; null bila bulan tsb tidak ada di detail neraca
+  const lap = (name, m) => { let f = false, s = 0; ((lpk && lpk.detail) || []).forEach(r => { if (r.laporanBulanan === name && r.values && isNum(r.values[m])) { f = true; s += r.values[m]; } }); return f ? s : null; };
+  const stot = (name, m) => { const o = (lpk && lpk.subtotalsFull && lpk.subtotalsFull[name]) || (lpk && lpk.subtotals && lpk.subtotals[name]); return (o && isNum(o[m])) ? o[m] : null; };
+  const kas = m => lap('Kas & Bank', m);
+  const piu = m => { const a = lap('Piutang Dagang', m), b = lap('Piutang Lain', m); return (isNum(a) || isNum(b)) ? (isNum(a) ? a : 0) + (isNum(b) ? b : 0) : null; };
+  const per = m => lap('Persediaan', m);
+  const AL = m => stot('Aset Lancar', m), LL = m => stot('Liabilitas Lancar', m);
+  const ocl = m => { const a = AL(m), k = kas(m), p = piu(m), q = per(m); return (isNum(a) && isNum(k) && isNum(p) && isNum(q)) ? a - k - p - q : null; };
+
+  const CF = Array.isArray(D.cfDetailRaw) ? D.cfDetailRaw : [];
+  const findRow = prefix => CF.find(r => r && r[2] && String(r[2]).trim().indexOf(prefix) === 0) || null;
+  const rowVals = r => r ? Array.from({ length: 12 }, (_, i) => { const v = parseFloat(r[4 + i]); return isFinite(v) ? v : 0; }) : null;
+  const rowLabel = r => r ? String(r[2]).split('|').slice(1).join('|').trim() : '';
+  const kenaikan = rowVals(findRow('Kenaikan'));
+  const vOpsAll = rowVals(findRow('Arus Kas Bersih dari Aktivitas Operasi'));
+  const METRICS = { 'EBITDA': 'EBITDA', 'EBIT': 'EBIT', 'EBIT (+Mangement)': 'EBIT setelah Biaya Management', 'NPM': 'Net Profit (NPM)' };
+  let cfLast = -1, cfPartial = null;
+  if (kenaikan) {
+    cfLast = 0; kenaikan.forEach((v, i) => { if (v !== 0) cfLast = i; });
+    const sal = Array.isArray(D.saldoRaw) ? D.saldoRaw : [];
+    let lastTx = null;
+    for (let i = sal.length - 1; i >= 0; i--) { if (sal[i].debit !== 0 || sal[i].kredit !== 0) { lastTx = sal[i].date; break; } }
+    if (lastTx && /^\d{4}-\d{2}-\d{2}$/.test(lastTx)) {
+      const ly = parseInt(lastTx.slice(0, 4), 10), lm = parseInt(lastTx.slice(5, 7), 10) - 1, ld = parseInt(lastTx.slice(8, 10), 10);
+      if (ly === year && lm === cfLast && ld < daysIn(ly, lm)) cfPartial = { day: ld, text: MN_FULL[lm] + ' ' + ly + ' baru berjalan s.d ' + ld + ' ' + MN_FULL[lm] + ' (data transaksi kas terakhir)' };
+    }
+    setText('frCfAsOf', 'Arus kas s.d ' + MN_FULL[cfLast] + ' ' + year + (cfPartial ? ' (parsial)' : ''));
+  }
+
+  // ---------- rentang waktu ----------
+  const ratioMax = cols.length ? monthIdx(cols[cols.length - 1]) : -1;
+  const maxIdx = Math.max(ratioMax, cfLast);
+  const state = { from: 0, to: Math.max(maxIdx, 0), metric: 'EBITDA', prov: true };
+  const fromSel = document.getElementById('frFrom'), toSel = document.getElementById('frTo'), resetBtn = document.getElementById('frReset');
+  if (fromSel && toSel && maxIdx >= 0) {
+    let opts = '';
+    for (let i = 0; i <= maxIdx; i++) opts += '<option value="' + i + '">' + MN_FULL[i] + ' ' + year + '</option>';
+    fromSel.innerHTML = opts; toSel.innerHTML = opts;
+    fromSel.value = String(state.from); toSel.value = String(state.to);
+    fromSel.addEventListener('change', () => { state.from = parseInt(fromSel.value, 10); if (state.from > state.to) { state.to = state.from; toSel.value = String(state.to); } renderAll(); });
+    toSel.addEventListener('change', () => { state.to = parseInt(toSel.value, 10); if (state.to < state.from) { state.from = state.to; fromSel.value = String(state.from); } renderAll(); });
+    if (resetBtn) resetBtn.addEventListener('click', () => { state.from = 0; state.to = maxIdx; fromSel.value = '0'; toSel.value = String(maxIdx); renderAll(); });
+  }
+  const metricSel = document.getElementById('frMetric'), provChk = document.getElementById('frProv');
+  if (metricSel) metricSel.addEventListener('change', () => { state.metric = metricSel.value; renderQuad(); });
+  if (provChk) provChk.addEventListener('change', () => { state.prov = provChk.checked; renderQuad(); });
+  const inSel = i => i >= state.from && i <= state.to;
+
+  // ---------- 6. KUADRAN LABA vs CFO ----------
+  function renderQuad() {
+    const grid = document.getElementById('frQuadGrid');
+    if (!grid) return;
+    const mKey = state.metric, mLabel = METRICS[mKey] || mKey;
+    setHtml('frQuadSub', 'Sumbu vertikal: laba = <b>' + mLabel + '</b> (Laba Rugi) &middot; sumbu horizontal: CFO = Arus Kas Bersih Operasional');
+    const idxs = [];
+    if (vOpsAll) for (let i = state.from; i <= Math.min(state.to, cfLast); i++) idxs.push(i);
+    if (!idxs.length) {
+      grid.innerHTML = '<div class="fr-empty" style="grid-column:1 / -1">Tidak ada data arus kas operasional pada rentang ini.</div>';
+      empty('frQuadTable', 'Tidak ada data pada rentang ini.');
+      setHtml('frQuadPending', '');
+      return;
+    }
+    const closedMap = {}; cols.forEach(m => { closedMap[monthIdx(m)] = m; });
+    const pts = idxs.map(i => {
+      const closed = closedMap[i] !== undefined;
+      const partial = !!cfPartial && i === cfLast;                       // bulan berjalan belum penuh -> tidak pernah diklasifikasi
+      const mName = closed ? closedMap[i] : MN[i] + ' ' + String(year).slice(-2);
+      const profit = (!partial && (closed || state.prov)) ? pv(mName, mKey) : null;
+      const cfo = vOpsAll[i];
+      let q = null;
+      if (isNum(profit) && isNum(cfo)) q = profit >= 0 ? (cfo >= 0 ? 1 : 2) : (cfo >= 0 ? 3 : 4);
+      return { i: i, closed: closed, partial: partial, profit: profit, cfo: cfo, q: q };
+    });
+    const shown = pts.filter(p => p.q !== null);
+    const pend = pts.filter(p => p.q === null);
+    const chip = p => '<span class="fr-chip' + (p.closed ? '' : ' prov') + '" title="' + MN[p.i] + ' ' + year + ' &middot; Laba Rp ' + fmtJt(p.profit) + ' jt &middot; CFO Rp ' + fmtJt(p.cfo) + ' jt' + (p.closed ? '' : ' &middot; sementara (belum tutup buku)') + '">' + MN[p.i].toUpperCase() + (p.closed ? '' : '*') + '</span>';
+    const quad = (n, title, sub, cls) => {
+      const L = shown.filter(p => p.q === n);
+      return '<div class="fr-q ' + cls + '"><div class="fr-q-head"><span class="fr-q-title">' + title + '</span><span class="fr-q-count">' + L.length + ' bln</span></div>' +
+        '<div class="fr-q-sub">' + sub + '</div><div class="fr-q-months">' + (L.length ? L.map(chip).join('') : '<span class="fr-q-none">&ndash;</span>') + '</div></div>';
+    };
+    grid.innerHTML =
+      '<div class="fr-qa fr-qa-top">PROFIT (+)</div>' +
+      '<div class="fr-qa fr-qa-left">CFO (&minus;)</div>' +
+      '<div class="fr-qgrid">' +
+        quad(2, 'KUADRAN II', 'Laba (+) &middot; CFO (&minus;)', 'q2') + quad(1, 'KUADRAN I', 'Laba (+) &middot; CFO (+)', 'q1') +
+        quad(4, 'KUADRAN IV', 'Laba (&minus;) &middot; CFO (&minus;)', 'q4') + quad(3, 'KUADRAN III', 'Laba (&minus;) &middot; CFO (+)', 'q3') +
+      '</div>' +
+      '<div class="fr-qa fr-qa-right">CFO (+)</div>' +
+      '<div class="fr-qa fr-qa-bottom">PROFIT (&minus;)</div>';
+    const RN = { 1: 'I', 2: 'II', 3: 'III', 4: 'IV' };
+    render('frQuadTable', ['Rp juta'].concat(pts.map(p => MN[p.i] + (p.closed ? '' : '*'))), [
+      { label: mLabel + ' (Rp juta)', cells: pts.map(p => fmtJt(p.profit)) },
+      { label: 'CFO &mdash; Arus Kas Operasional (Rp juta)', cells: pts.map(p => fmtJt(p.cfo)) },
+      { label: 'Kuadran', cls: 'fr-key', cells: pts.map(p => p.q ? RN[p.q] + (p.closed ? '' : '*') : '–') }
+    ]);
+    let msg = '';
+    const pendClosedLess = pend.filter(p => !p.partial), pendPartial = pend.filter(p => p.partial);
+    if (pendClosedLess.length) msg += '<br><b>Belum diklasifikasi (laba belum tutup buku):</b> ' + pendClosedLess.map(p => MN[p.i] + ' (CFO Rp ' + fmtJt(p.cfo) + ' jt)').join(', ') + '. Centang &ldquo;Sertakan bulan yang belum tutup buku&rdquo; untuk indikasi sementara.';
+    if (pendPartial.length) msg += '<br><b>Tidak diklasifikasi:</b> ' + pendPartial.map(p => MN[p.i]).join(', ') + ' &mdash; bulan masih berjalan' + (cfPartial ? ' (data s.d ' + cfPartial.day + ' ' + MN_FULL[cfLast] + ')' : '') + ', CFO belum mewakili satu bulan penuh (CFO sementara Rp ' + fmtJt(pendPartial[0].cfo) + ' jt).';
+    if (shown.some(p => !p.closed)) msg += '<br><b>*</b> Indikasi sementara: bulan setelah tutup buku terakhir (' + (cols.length ? MN_FULL[ratioMax] + ' ' + year : '-') + ') memakai angka Laba Rugi yang belum final.';
+    setHtml('frQuadPending', msg);
+  }
+
+  function renderAll() {
+    const selCols = cols.filter(m => inSel(monthIdx(m)));
+    const aggName = state.from === 0 ? 'YTD' : 'Periode';
+    const lastClosed = cols.length ? MN_FULL[ratioMax] + ' ' + year : '-';
+    const noClosed = 'Tidak ada data tutup buku pada rentang ini (rasio tersedia s.d ' + lastClosed + ').';
+
+    // rentang & catatan ketersediaan data
+    const lbl = MN_FULL[state.from] + ' ' + year + (state.from === state.to ? '' : ' s.d ' + MN_FULL[state.to] + ' ' + year);
+    let note = '<b>Rentang ditampilkan:</b> ' + lbl + '. Tabel 1&ndash;4 tersedia s.d ' + lastClosed + ' (tutup buku)' + (cfLast >= 0 ? '; tabel 5 s.d ' + MN_FULL[cfLast] + ' ' + year : '') + '.';
+    if (state.to > ratioMax && ratioMax >= 0) note += ' Bulan setelah ' + MN_FULL[ratioMax] + ' belum ditampilkan pada tabel 1&ndash;4 karena belum tutup buku.';
+    setHtml('frFilterNote', note);
+
+    // ---------- 1. PROFITABILITAS ----------
+    if (!selCols.length) {
+      empty('frProfTable', cols.length ? noClosed : 'Data Laba Rugi / Balance Sheet belum tersedia.');
+    } else {
+      const bruto = m => pv(m, 'Pendapatan Bruto');
+      const specs = [
+        { label: 'Pendapatan Bruto (Rp juta)', cls: 'fr-key', jt: true, f: m => bruto(m) },
+        { label: 'Diskon &amp; Retur', f: m => pv(m, 'Diskon & Retur') },
+        { label: 'Pendapatan Netto', f: m => pv(m, 'Pendapatan Netto') },
+        { label: 'HPP', f: m => pv(m, 'HPP') },
+        { label: 'Gross Profit (GP)', cls: 'fr-key', f: m => pv(m, 'GP') },
+        { label: 'Total Biaya Entitas', f: m => pv(m, 'Total Biaya Entitas') },
+        { label: 'Biaya Marketing', cls: 'fr-sub', f: m => pSum(m, ['Gaji Marketing', 'SPPD Marketing', 'Marketing Lainnya']) },
+        { label: 'Biaya Adum &amp; Operasional', cls: 'fr-sub', f: m => pSum(m, ['Gaji Adum', 'SPPD Adum', 'Operasional', 'Adum Lainnya']) },
+        { label: 'EBITDA', cls: 'fr-key', f: m => pv(m, 'EBITDA') },
+        { label: 'EBIT', f: m => pv(m, 'EBIT') },
+        { label: 'EBIT setelah Biaya Management', f: m => pv(m, 'EBIT (+Mangement)') },
+        { label: 'Net Profit (NPM)', cls: 'fr-key', f: m => pv(m, 'NPM') }
+      ];
+      const rows = specs.map(s => {
+        let cells, agg;
+        if (s.jt) {
+          cells = selCols.map(m => fmtJt(s.f(m)));
+          agg = fmtJt(sumOf(selCols.map(m => s.f(m))));
+        } else {
+          cells = selCols.map(m => fmtPct(div(s.f(m), bruto(m))));
+          const ok = selCols.filter(m => isNum(s.f(m)) && isNum(bruto(m)));
+          agg = fmtPct(div(sumOf(ok.map(m => s.f(m))), sumOf(ok.map(m => bruto(m)))));
+        }
+        return { label: s.label, cls: s.cls, cells: cells.concat([agg]), ytd: true };
+      });
+      render('frProfTable', ['Rasio (% dari Pendapatan Bruto)'].concat(selCols.map(m => m.slice(0, 3)), [aggName]), rows);
+    }
+
+    // ---------- 2. LIKUIDITAS ----------
+    if (!selCols.length) {
+      empty('frLiqTable', cols.length ? noClosed : 'Data Balance Sheet belum tersedia.');
+    } else {
+      const lc = (openM && state.from === 0 ? [openM] : []).concat(selCols);
+      const mk = (label, f, fmt, cls) => ({ label: label, cls: cls, cells: lc.map(m => fmt(f(m))) });
+      const rows = [
+        { group: true, label: 'Komponen (Rp juta)' },
+        mk('Kas &amp; Bank', kas, fmtJt),
+        mk('Piutang (Dagang + Lain-lain)', piu, fmtJt),
+        mk('Persediaan', per, fmtJt),
+        mk('Aset Lancar Lainnya', ocl, fmtJt),
+        mk('Aset Lancar', AL, fmtJt, 'fr-key'),
+        mk('Liabilitas Lancar', LL, fmtJt, 'fr-key'),
+        mk('Net Working Capital / Modal Kerja Bersih (Aset Lancar &minus; Liabilitas Lancar)', m => (isNum(AL(m)) && isNum(LL(m))) ? AL(m) - LL(m) : null, fmtJt),
+        { group: true, label: 'Rasio Likuiditas' },
+        mk('Current Ratio', m => div(AL(m), LL(m)), fmtX, 'fr-key'),
+        mk('Quick Ratio', m => (isNum(kas(m)) && isNum(piu(m))) ? div(kas(m) + piu(m), LL(m)) : null, fmtX, 'fr-key'),
+        mk('Cash Ratio', m => div(kas(m), LL(m)), fmtX, 'fr-key')
+      ];
+      render('frLiqTable', ['Pos (Rp juta) / Rasio'].concat(lc), rows);
+    }
+
+    // ---------- 3. AKTIVITAS ----------
+    if (!selCols.length) {
+      empty('frActTable', cols.length ? noClosed : 'Data Laba Rugi / Balance Sheet belum tersedia.');
+    } else {
+      const bal = { ar: m => lap('Piutang Dagang', m), inv: m => lap('Persediaan', m), ap: m => lap('Hutang Dagang', m), ta: m => stot('Total Aset', m) };
+      const prevOf = i => i === 0 ? openM : cols[i - 1];
+      const avgBal = (fn, i) => {
+        const b = fn(cols[i]); if (!isNum(b)) return null;
+        const p = prevOf(i); const a = p ? fn(p) : null;
+        return isNum(a) ? (a + b) / 2 : b;
+      };
+      // dihitung untuk SEMUA bulan tutup buku (saldo awal bulan pertama terpilih = saldo akhir bulan sebelumnya), lalu disaring
+      const perAll = cols.map((m, i) => ({
+        mi: monthIdx(m), days: daysIn(year, monthIdx(m)),
+        net: pv(m, 'Pendapatan Netto'), hpp: pv(m, 'HPP'),
+        ar: avgBal(bal.ar, i), inv: avgBal(bal.inv, i), ap: avgBal(bal.ap, i), ta: avgBal(bal.ta, i)
+      }));
+      const per_ = perAll.filter(p => inSel(p.mi));
+      const mean = k => { const v = per_.map(p => p[k]).filter(isNum); return v.length ? sumOf(v) / v.length : null; };
+      // kolom YTD/Periode: dasar (Netto/HPP) dan hari dijumlahkan hanya pada bulan yang saldonya tersedia, agar sebanding dengan rata-rata saldo
+      const aggOf = (bk, ck) => { const ok = per_.filter(p => isNum(p[bk]) && isNum(p[ck])); return { base: sumOf(ok.map(p => p[ck])), days: sumOf(ok.map(p => p.days)), n: ok.length }; };
+      const aAR = aggOf('ar', 'net'), aIN = aggOf('inv', 'hpp'), aAP = aggOf('ap', 'hpp'), aTA = aggOf('ta', 'net');
+      const agg = {
+        days: sumOf(per_.map(p => p.days)),
+        net: sumOf(per_.map(p => p.net)), hpp: sumOf(per_.map(p => p.hpp)),
+        ar: mean('ar'), inv: mean('inv'), ap: mean('ap'), ta: mean('ta'),
+        bAR: aAR.n ? aAR.base : null, dAR: aAR.days, bIN: aIN.n ? aIN.base : null, dIN: aIN.days,
+        bAP: aAP.n ? aAP.base : null, dAP: aAP.days, bTA: aTA.n ? aTA.base : null
+      };
+      const all = per_.concat([agg]);
+      const bAR = p => p.bAR !== undefined ? p.bAR : p.net, dAR = p => p.dAR !== undefined ? p.dAR : p.days;
+      const bIN = p => p.bIN !== undefined ? p.bIN : p.hpp, dIN = p => p.dIN !== undefined ? p.dIN : p.days;
+      const bAP = p => p.bAP !== undefined ? p.bAP : p.hpp, dAP = p => p.dAP !== undefined ? p.dAP : p.days;
+      const bTA = p => p.bTA !== undefined ? p.bTA : p.net;
+      const dso = p => { const t = div(p.ar, bAR(p)); return isNum(t) ? t * dAR(p) : null; };
+      const dio = p => { const t = div(p.inv, bIN(p)); return isNum(t) ? t * dIN(p) : null; };
+      const dpo = p => { const t = div(p.ap, bAP(p)); return isNum(t) ? t * dAP(p) : null; };
+      const ccc = p => (isNum(dso(p)) && isNum(dio(p)) && isNum(dpo(p))) ? dso(p) + dio(p) - dpo(p) : null;
+      const row = (label, f, fmt, cls) => ({ label: label, cls: cls, cells: all.map(p => fmt(f(p))), ytd: true });
+      const rows = [
+        { group: true, label: 'Dasar perhitungan (Rp juta)' },
+        row('Pendapatan Netto', p => p.net, fmtJt),
+        row('HPP', p => p.hpp, fmtJt),
+        row('Rata-rata Piutang Dagang', p => p.ar, fmtJt),
+        row('Rata-rata Persediaan', p => p.inv, fmtJt),
+        row('Rata-rata Hutang Dagang', p => p.ap, fmtJt),
+        row('Rata-rata Total Aset', p => p.ta, fmtJt),
+        { group: true, label: 'Rasio Aktivitas' },
+        row('Perputaran Piutang (x)', p => div(bAR(p), p.ar), fmtX),
+        row('DSO &mdash; Hari Penagihan Piutang (hari)', dso, fmtDay, 'fr-key'),
+        row('Perputaran Persediaan (x)', p => div(bIN(p), p.inv), fmtX),
+        row('DIO &mdash; Hari Persediaan (hari)', dio, fmtDay, 'fr-key'),
+        row('Perputaran Hutang Dagang (x)', p => div(bAP(p), p.ap), fmtX),
+        row('DPO &mdash; Hari Pembayaran Hutang (hari)', dpo, fmtDay, 'fr-key'),
+        row('Siklus Konversi Kas / CCC (hari)', ccc, fmtDay, 'fr-key'),
+        row('Perputaran Total Aset (x)', p => div(bTA(p), p.ta), fmtX)
+      ];
+      render('frActTable', ['Rasio'].concat(per_.map(p => MN[p.mi]), [aggName + ' (' + per_.length + ' bln)']), rows);
+    }
+
+    // ---------- 4. NET WORKING CAPITAL ----------
+    if (!selCols.length) {
+      empty('frNwcTable', cols.length ? noClosed : 'Data Balance Sheet belum tersedia.');
+      setHtml('frNwcSummary', '');
+    } else {
+      const seq = (openM ? [openM] : []).concat(cols);                    // seluruh bulan neraca, berurutan
+      const lc = (openM && state.from === 0 ? [openM] : []).concat(selCols);
+      const ar = m => lap('Piutang Dagang', m), inv = m => lap('Persediaan', m), ap = m => lap('Hutang Dagang', m);
+      const nwc = m => (isNum(AL(m)) && isNum(LL(m))) ? AL(m) - LL(m) : null;
+      const twc = m => (isNum(ar(m)) && isNum(inv(m)) && isNum(ap(m))) ? ar(m) + inv(m) - ap(m) : null;
+      const prevM = m => { const k = seq.indexOf(m); return k > 0 ? seq[k - 1] : null; };
+      const delta = f => m => { const p = prevM(m); if (!p) return null; const a = f(m), b = f(p); return (isNum(a) && isNum(b)) ? a - b : null; };
+      const netto = m => (m === openM) ? null : pv(m, 'Pendapatan Netto');
+      const cfoOf = m => (m === openM || !vOpsAll) ? null : vOpsAll[monthIdx(m)];
+      const mk = (label, f, fmt, cls, noNeg) => ({ label: label, cls: cls, noNeg: noNeg, cells: lc.map(m => fmt(f(m))) });
+      const rows = [
+        { group: true, label: 'Net Working Capital (Rp juta)' },
+        mk('Aset Lancar', AL, fmtJt),
+        mk('Liabilitas Lancar', LL, fmtJt),
+        mk('Net Working Capital (NWC) = Aset Lancar &minus; Liabilitas Lancar', nwc, fmtJt, 'fr-key'),
+        mk('NWC di luar Kas &amp; Bank', m => (isNum(nwc(m)) && isNum(kas(m))) ? nwc(m) - kas(m) : null, fmtJt),
+        { group: true, label: 'Modal kerja dagang (Rp juta)' },
+        mk('Piutang Dagang', ar, fmtJt),
+        mk('Persediaan', inv, fmtJt),
+        mk('Hutang Dagang (pengurang)', ap, fmtJt),
+        mk('Modal Kerja Dagang = Piutang + Persediaan &minus; Hutang', twc, fmtJt, 'fr-key'),
+        { group: true, label: 'Rasio &amp; perubahan' },
+        mk('NWC &divide; Total Aset', m => div(nwc(m), stot('Total Aset', m)), fmtPct),
+        mk('NWC &divide; Pendapatan Netto setahun (Netto bulan &times; 12)', m => { const n = netto(m); return isNum(n) ? div(nwc(m), n * 12) : null; }, fmtPct),
+        mk('Kenaikan (Penurunan) NWC vs bulan sebelumnya', delta(nwc), fmtJt, 'fr-key', true),
+        mk('Kenaikan (Penurunan) Modal Kerja Dagang', delta(twc), fmtJt, null, true),
+        mk('Memo: CFO &mdash; Arus Kas Operasional', cfoOf, fmtJt, 'fr-memo')
+      ];
+      render('frNwcTable', ['Pos (Rp juta) / Rasio'].concat(lc), rows);
+      const pFirst = prevM(selCols[0]), lastM = selCols[selCols.length - 1];
+      if (pFirst && isNum(nwc(pFirst)) && isNum(nwc(lastM))) {
+        const d = nwc(lastM) - nwc(pFirst);
+        setHtml('frNwcSummary', '<br><b>Rentang ini:</b> NWC ' + (d >= 0 ? 'naik' : 'turun') + ' Rp ' + fmtJt(Math.abs(d)) + ' jt, dari Rp ' + fmtJt(nwc(pFirst)) + ' jt (akhir ' + pFirst + ') menjadi Rp ' + fmtJt(nwc(lastM)) + ' jt (akhir ' + lastM + ')' + (d >= 0 ? ' &mdash; kas tertahan di modal kerja.' : ' &mdash; modal kerja melepas kas.'));
+      } else setHtml('frNwcSummary', '');
+    }
+
+    // ---------- 5. ARUS KAS ----------
+    const idxs = [];
+    if (kenaikan) for (let i = state.from; i <= Math.min(state.to, cfLast); i++) idxs.push(i);
+    if (!kenaikan) {
+      empty('frCfTable', 'Data arus kas belum tersedia.');
+      setHtml('frCfPartial', '');
+    } else if (!idxs.length) {
+      empty('frCfTable', 'Tidak ada data arus kas pada rentang ini (tersedia s.d ' + MN_FULL[cfLast] + ' ' + year + ').');
+      setHtml('frCfPartial', '');
+    } else {
+      const showPartial = !!cfPartial && idxs.indexOf(cfLast) >= 0;
+      const hdr = idxs.map(i => MN[i] + (showPartial && i === cfLast ? '*' : ''));
+      const flow = (label, r, cls) => {
+        const v = rowVals(r);
+        return { label: label, cls: cls, ytd: true, cells: v ? idxs.map(i => fmtJt(v[i])).concat([fmtJt(sumOf(idxs.map(i => v[i])))]) : idxs.map(() => '–').concat(['–']) };
+      };
+      const lbl2 = (prefix, fallback) => rowLabel(findRow(prefix)) || fallback;
+      const lblFin = (prefix, fallback) => { const t = lbl2(prefix, fallback); return t.indexOf('Pendanaan') < 0 ? t + ' Pendanaan' : t; };
+      const rOps = findRow('Arus Kas Bersih dari Aktivitas Operasi');
+      const rInv = findRow('Arus Kas Bersih dari Aktivitas Investasi');
+      const rFin = findRow('Arus Kas Bersih dari Aktivitas Pendanaan');
+      const vOps = rowVals(rOps), vInv = rowVals(rInv);
+      const vBeg = rowVals(findRow('Saldo Awal')), vEnd = rowVals(findRow('Saldo Akhir'));
+      const firstI = idxs[0], lastI = idxs[idxs.length - 1];
+      const rows = [
+        { group: true, label: 'A. Aktivitas Operasional' },
+        flow(lbl2('A1 |', 'Penerimaan'), findRow('A1 |'), 'fr-sub'),
+        flow(lbl2('A2 |', 'Pengeluaran'), findRow('A2 |'), 'fr-sub'),
+        flow('Arus Kas Bersih Operasional', rOps, 'fr-key'),
+        { group: true, label: 'B. Aktivitas Investasi' },
+        flow(lbl2('B1 |', 'Transaksi Aset'), findRow('B1 |'), 'fr-sub'),
+        flow(lbl2('B2 |', 'Transaksi Investasi'), findRow('B2 |'), 'fr-sub'),
+        flow('Arus Kas Bersih Investasi', rInv, 'fr-key'),
+        { group: true, label: 'C. Aktivitas Pendanaan' },
+        flow(lblFin('C1 |', 'Penerimaan Pendanaan'), findRow('C1 |'), 'fr-sub'),
+        flow(lblFin('C2 |', 'Pengeluaran Pendanaan'), findRow('C2 |'), 'fr-sub'),
+        flow('Arus Kas Bersih Pendanaan', rFin, 'fr-key'),
+        { group: true, label: 'Rekonsiliasi Kas' },
+        flow('Kenaikan (Penurunan) Kas Bersih', findRow('Kenaikan'), 'fr-key'),
+        { label: 'Saldo Awal Kas', cells: vBeg ? idxs.map(i => fmtJt(vBeg[i])).concat([fmtJt(vBeg[firstI])]) : [], ytd: true },
+        { label: 'Saldo Akhir Kas', cls: 'fr-key', cells: vEnd ? idxs.map(i => fmtJt(vEnd[i])).concat([fmtJt(vEnd[lastI])]) : [], ytd: true },
+        (vOps && vInv) ? { label: 'Memo: Arus Kas Bebas (Operasional + Investasi)', cls: 'fr-memo', ytd: true,
+          cells: idxs.map(i => fmtJt(vOps[i] + vInv[i])).concat([fmtJt(sumOf(idxs.map(i => vOps[i] + vInv[i])))]) } : null
+      ].filter(Boolean);
+      render('frCfTable', ['Rp juta'].concat(hdr, ['Total']), rows);
+      setHtml('frCfPartial', (showPartial ? '<br><b>* ' + cfPartial.text + '.</b> ' : '<br>') + 'Kolom Total = akumulasi bulan yang tampil; Saldo Awal Total = saldo awal bulan pertama yang tampil.');
+    }
+    renderQuad();
+  }
+
+  if (maxIdx < 0) {
+    ['frProfTable', 'frLiqTable', 'frActTable', 'frNwcTable', 'frCfTable', 'frQuadTable'].forEach(id => empty(id, 'Data belum tersedia.'));
+  } else {
+    renderAll();
+  }
+})();
+
 </script>
 </body>
 </html>
